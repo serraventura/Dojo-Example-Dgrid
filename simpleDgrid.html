@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>vScope Report</title>
+    <!-- Application-specific CSS should be stored in your application’s package to ensure portability and to allow
+         the build system to combine & minify it. -->
+    <link rel="stylesheet" href="books/resources/app.css">
+    
+    <style>
+
+        #boxGrid{
+            left:25%;
+            position: absolute;
+            width:50%;
+        }
+
+        /* styles for autoheight */
+        #grid {
+            height: auto;
+            width: 100%;
+            float: left;
+        }
+        #grid .dgrid-scroller {
+            position: relative;
+            overflow-y: hidden;
+        }
+        .has-ie-6 #grid .dgrid-scroller {
+            /* IE6 doesn't react properly to hidden on this page for some reason */
+            overflow-y: visible;
+        }
+        #grid .dgrid-header-scroll {
+            display: none;
+        }
+        #grid .dgrid-header {
+            right: 0;
+        }
+        /* styles for autoheight - END */
+
+
+        .field-title {
+            vertical-align:middle!important;
+            width: 30%;
+            font-weight: normal;
+        }
+
+        .field-count {
+            width: 6%;
+            vertical-align:middle!important;
+            text-align: center!important;
+            font-weight: normal;
+        }
+
+/*
+        .dgrid-column-2{
+            border-right: 0px #000088 solid !important;
+        }
+
+        .dgrid-column-3{
+            border-left: 0px #000088 solid !important;
+        }
+*/
+
+        #boxfilter{
+            float:right;
+        }
+
+
+	.dijitEditorIconPdf {
+
+	    width: 15px;
+	    height: 15px;
+	    background-image: url('books/resources/pdf.png');
+
+	}
+
+	.dijitEditorIconHtml {
+
+	    width: 15px;
+	    height: 15px;
+	    background-image: url('books/resources/html.png');
+
+	}
+
+    </style>
+
+    <script>
+
+
+
+    </script>
+
+</head>
+<body class="claro">
+
+
+    <div id="boxGrid">
+
+        <h1>Latest Edition Books</h1>
+        <br/>
+        <div id="boxButtons">
+            <div id="boxfilter">
+                <input
+                        id="filter"
+                        data-dojo-type="dijit/form/TextBox"
+                        data-dojo-props="placeHolder: 'filter by title', intermediateChanges:true"
+                        style="padding:2px;margin:3px;width:20em;"
+                        />
+            </div>
+        </div>
+        <div id="grid"></div>
+
+
+        <div id="horizontalSlider">
+
+            <ol data-dojo-type="dijit/form/HorizontalRuleLabels" container="topDecoration"
+                style="height:1.5em;font-size:75%;color:gray;">
+                <li>#</li>
+                <li>Jan</li>
+                <li>Feb</li>
+                <li>Mar</li>
+                <li>Apr</li>
+                <li>May</li>
+                <li>Jun</li>
+                <li>Jul</li>
+                <li>Aug</li>
+                <li>Sep</li>
+                <li>Oct</li>
+                <li>Nov</li>
+                <li>Dec</li>
+            </ol>
+
+        </div>
+
+    </div>
+    <!-- dojo.js is an AMD-compliant loader script. It accepts configuration either from a data-dojo-config attribute,
+         as shown here, from a global dojoConfig object (which must be defined *before* dojo.js is loaded), or from
+         a global require object.
+
+         Configuration options for the loader can be viewed at http://dojotoolkit.org/reference-guide/loader/amd.html
+         along with a bunch of additional information about its features.
+
+         Below, we’re doing the following:
+
+         1. Enabling the AMD loader. (async: 1)
+         2. Fixing the loader to use normal AMD resolution of unregistered module paths (relative to baseDir)
+            instead of the traditional Dojo resolution method (relative to the parent of baseDir).
+            (tlmSiblingOfDojo: 0)
+         3. Enabling debugging. (isDebug: 1)
+
+         The remainder of Dojo configuration, as well as our application’s instantiation, occurs within
+         app/run.js.
+
+		 NOTE: `build.sh` is responsible for removing the "isDebug" flag when deploying to production. If you modify
+		 this flag at all, you will break the build! -->
+    <script data-dojo-config="async: 1, tlmSiblingOfDojo: 0, isDebug: 0, parseOnLoad: 1" src="dojo/dojo.js"></script>
+
+    <!-- Load the loader configuration script. Note that this module ID is hard-coded in build.sh in order to provide
+         an optimised build that loads as few as one script for the entire application. If you change the name or
+         location of this module, you will need to update build.sh too. -->
+    <script src="books/run.js"></script>
+
+
+</body>
+</html>
